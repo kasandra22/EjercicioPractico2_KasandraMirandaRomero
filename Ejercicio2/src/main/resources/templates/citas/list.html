@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments :: head('Citas Médicas')}"></head>
+<body>
+<div th:replace="~{fragments :: navbar}"></div>
+
+<main class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Citas Médicas</h2>
+        <a href="/citas/nuevo" class="btn btn-primary" sec:authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_MEDICO')">+ Nueva Cita</a>
+    </div>
+
+    <div class="card card-medicare p-3">
+        <table class="table table-hover align-middle mb-0">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Paciente</th>
+                <th>Especialidad</th>
+                <th>Fecha</th>
+                <th>Costo</th>
+                <th>Estado</th>
+                <th sec:authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_MEDICO')">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cita : ${citas}">
+                <td th:text="${cita.id}"></td>
+                <td th:text="${cita.pacienteNombre}"></td>
+                <td th:text="${cita.especialidad}"></td>
+                <td th:text="${cita.fecha}"></td>
+                <td th:text="${'₡' + cita.costo}"></td>
+                <td>
+                    <span class="badge bg-success" th:if="${cita.activa}">Activa</span>
+                    <span class="badge bg-secondary" th:unless="${cita.activa}">Inactiva</span>
+                </td>
+                <td sec:authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_MEDICO')">
+                    <a th:href="@{/citas/editar/{id}(id=${cita.id})}" class="btn btn-sm btn-outline-primary">Editar</a>
+                    <a th:href="@{/citas/eliminar/{id}(id=${cita.id})}" class="btn btn-sm btn-outline-danger"
+                       onclick="return confirm('¿Eliminar esta cita?');">Eliminar</a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(citas)}">
+                <td colspan="7" class="text-center text-muted">No hay citas registradas actualmente</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<div th:replace="~{fragments :: footer}"></div>
+</body>
+</html>

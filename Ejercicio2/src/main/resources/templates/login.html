@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments :: head('Iniciar sesión')}">
+</head>
+
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+
+<div th:replace="~{fragments :: navbar}">
+</div>
+
+
+<!-- ==================== LOGIN ==================== -->
+
+<main class="container my-5 d-flex justify-content-center">
+
+    <div class="card card-medicare p-4"
+         style="max-width: 420px; width: 100%;">
+
+        <h3 class="text-center fw-bold mb-4">
+            Iniciar Sesión
+        </h3>
+
+
+        <!-- MENSAJE DE ERROR -->
+
+        <div class="alert alert-danger"
+             th:if="${param.error}">
+
+            Correo o contraseña incorrectos.
+
+        </div>
+
+
+        <!-- MENSAJE DE LOGOUT -->
+
+        <div class="alert alert-success"
+             th:if="${param.logout}">
+
+            Sesión cerrada correctamente.
+
+        </div>
+
+
+        <!-- FORMULARIO -->
+
+        <form th:action="@{/login}"
+              method="post">
+
+            <!-- CORREO -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Correo electrónico
+                </label>
+
+                <input type="email"
+                       name="username"
+                       class="form-control"
+                       required
+                       autofocus/>
+
+            </div>
+
+
+            <!-- CONTRASEÑA -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Contraseña
+                </label>
+
+                <input type="password"
+                       name="password"
+                       class="form-control"
+                       required/>
+
+            </div>
+
+
+            <!-- BOTÓN -->
+
+            <button type="submit"
+                    class="btn btn-primary w-100">
+
+                Ingresar
+
+            </button>
+
+        </form>
+
+
+        <hr/>
+
+
+        <!-- USUARIOS DE PRUEBA -->
+
+        <small class="text-muted">
+
+            Usuarios de prueba:
+
+            admin@medicare.com /
+            medico@medicare.com /
+            paciente@medicare.com
+
+            (clave: 12345)
+
+        </small>
+
+    </div>
+
+</main>
+
+
+<!-- ==================== FOOTER ==================== -->
+
+<div th:replace="~{fragments :: footer}">
+</div>
+
+</body>
+</html>

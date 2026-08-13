@@ -1,0 +1,131 @@
+body {
+    background-color: #fff5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar-medicare {
+    background: linear-gradient(135deg, #d98b91, #c96f78) !important;
+}
+
+.navbar-medicare .navbar-brand,
+.navbar-medicare .nav-link {
+    color: #ffffff !important;
+}
+
+.navbar-medicare .nav-link:hover {
+    color: #ffe5e7 !important;
+}
+
+/* =========================
+   TARJETAS
+   ========================= */
+
+.card-medicare {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(120, 70, 80, 0.12);
+    background-color: #ffffff;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    background: linear-gradient(135deg, #d98b91, #c96f78) !important;
+    color: #ffffff !important;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+}
+
+/* =========================
+   TODAS LAS TABLAS
+   ========================= */
+
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 3px 12px rgba(120, 70, 80, 0.12);
+}
+
+/* Encabezado */
+.table thead {
+    background: linear-gradient(135deg, #c96f78, #b85f68);
+    color: #ffffff;
+}
+
+.table thead th {
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+}
+
+/* Filas */
+.table tbody tr {
+    background-color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+/* Celdas */
+.table tbody td {
+    padding: 14px 16px;
+    vertical-align: middle;
+}
+
+/* Efecto al pasar el mouse */
+.table tbody tr:hover {
+    background-color: #fff0f2;
+}
+
+/* Bordes */
+.table td {
+    border-color: #f3d6d9;
+}
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer-medicare {
+    background-color: #6d4c52 !important;
+    color: #ffffff !important;
+}
+
+/* =========================
+   BOTONES
+   ========================= */
+
+.btn-medicare {
+    background-color: #c96f78;
+    border-color: #c96f78;
+    color: #ffffff;
+}
+
+.btn-medicare:hover {
+    background-color: #b85f68;
+    border-color: #b85f68;
+    color: #ffffff;
+}
+
+/* =========================
+   ENLACES
+   ========================= */
+
+a {
+    color: #b85f68;
+}
+
+a:hover {
+    color: #944c54;
+}

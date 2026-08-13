@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments :: head('Inicio')}"></head>
+<body>
+<div th:replace="~{fragments :: navbar}"></div>
+
+<main class="container my-5">
+    <div class="hero mb-5">
+        <h1 class="fw-bold">Bienvenidos a la Pagina MediCare</h1>
+        <p class="lead mb-0">Gestión integral de usuarios, roles y citas médicas de su centro de salud</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card card-medicare h-100 p-3">
+                <h5 class="fw-bold">Gestión de Usuarios</h5>
+                <p>Administre las cuentas del sistema y sus roles asignados.</p>
+                <a class="btn btn-primary mt-auto" href="/usuarios" sec:authorize="hasAuthority('ROLE_ADMIN')">Ir a Usuarios</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-medicare h-100 p-3">
+                <h5 class="fw-bold">Gestión de Roles</h5>
+                <p>ADMIN, MEDICO y PACIENTE con permisos diferenciados.</p>
+                <a class="btn btn-primary mt-auto" href="/roles" sec:authorize="hasAuthority('ROLE_ADMIN')">Ir a Roles</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-medicare h-100 p-3">
+                <h5 class="fw-bold">Citas Médicas</h5>
+                <p>Consulte, agende y administre las citas del centro de salud.</p>
+                <a class="btn btn-primary mt-auto" href="/citas" sec:authorize="isAuthenticated()">Ver Citas</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:replace="~{fragments :: footer}"></div>
+</body>
+</html>
